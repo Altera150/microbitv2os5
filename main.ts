@@ -2,6 +2,9 @@ input.onPinPressed(TouchPin.P0, function () {
     GPIO()
     basic.showArrow(ArrowNames.NorthEast)
 })
+input.onGesture(Gesture.ScreenDown, function () {
+    basic.showNumber(bushu)
+})
 input.onGesture(Gesture.TiltLeft, function () {
     for (let index = 0; index < 2; index++) {
         music.startMelody(music.builtInMelody(Melodies.Birthday), MelodyOptions.OnceInBackground)
@@ -31,7 +34,7 @@ input.onGesture(Gesture.SixG, function () {
     aihubenji()
 })
 input.onGesture(Gesture.Shake, function () {
-    basic.showNumber(randint(1, 16))
+    bushu += 1
 })
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     basic.showNumber(input.compassHeading())
@@ -92,6 +95,7 @@ input.onLogoEvent(TouchButtonEvent.Touched, function () {
 input.onGesture(Gesture.ThreeG, function () {
     basic.showNumber(randint(0, 1))
 })
+let bushu = 0
 radio.setTransmitPower(6)
 radio.setGroup(80)
 basic.showString("Hello!I'm micro:bit")
